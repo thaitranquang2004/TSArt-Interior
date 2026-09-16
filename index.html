@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TS Art Interior - Thiết kế nội thất cao cấp, chuyên nghiệp. Signature projects cho văn phòng, căn hộ và showroom.">
+    <title>TS Art Interior | Premium Interior Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#hero" class="nav__logo">TS ART INTERIOR</a>
+            <div class="nav__menu" id="navMenu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#hero" class="nav__link active" data-section="hero">TS Art Interior</a>
+                    </li>
+                    <li class="nav__separator">|</li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link" data-section="about">1. About us</a>
+                    </li>
+                    <li class="nav__separator">|</li>
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="#projects" class="nav__link" data-section="projects">2. Signature projects</a>
+                        <div class="dropdown">
+                            <a href="projects/hsc-office.html" class="dropdown__link">01 — HSC Office</a>
+                            <a href="projects/grand-marina.html" class="dropdown__link">02 — Grand Marina Saigon</a>
+                            <a href="projects/nho-gallery.html" class="dropdown__link">03 — Sales Gallery N.H.O</a>
+                            <a href="projects/the-marq.html" class="dropdown__link">04 — The Marq</a>
+                            <a href="projects/masterise-home.html" class="dropdown__link">05 — Masterise Home</a>
+                            <a href="projects/opera-residence.html" class="dropdown__link">06 — Opera Residence</a>
+                            <a href="projects/lavida-plus.html" class="dropdown__link">07 — Lavida Plus</a>
+                            <a href="projects/alpha-hill.html" class="dropdown__link">08 — Alpha Hill</a>
+                        </div>
+                    </li>
+                    <li class="nav__separator">|</li>
+                    <li class="nav__item">
+                        <a href="#connect" class="nav__link" data-section="connect">3. Connect</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80" alt="TS Art Interior Design" class="hero__bg-img" loading="eager">
+            <div class="hero__overlay"></div>
+        </div>
+        <div class="hero__content">
+            <div class="hero__title-wrap reveal reveal--up">
+                <h1 class="hero__title">
+                    <span class="hero__title-line">PORT</span>
+                    <span class="hero__title-line">FOLIO</span>
+                </h1>
+            </div>
+            <div class="hero__subtitle reveal reveal--up reveal--delay-1">
+                <p>Premium Interior Design</p>
+            </div>
+            <div class="hero__breadcrumb reveal reveal--up reveal--delay-2">
+                <span class="active">TS ART INTERIOR</span>
+                <span class="sep">|</span>
+                <span>1. ABOUT US</span>
+                <span class="sep">|</span>
+                <span>2. SIGNATURE PROJECTS</span>
+                <span class="sep">|</span>
+                <span>3. CONNECT</span>
+            </div>
+        </div>
+        <div class="hero__scroll">
+            <span>Scroll</span>
+            <div class="hero__scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ========== CALENDAR / INTRO SECTION ========== -->
+    <section class="intro" id="intro">
+        <div class="container">
+            <div class="intro__grid">
+                <div class="intro__left reveal reveal--left">
+                    <h2 class="section-title">Calendar</h2>
+                    <ul class="intro__list">
+                        <li><span class="intro__num">1</span> Khởi tạo ý tưởng</li>
+                        <li><span class="intro__num">2</span> Triển khai thiết kế</li>
+                        <li><span class="intro__num">3</span> Thi công & bàn giao</li>
+                    </ul>
+                </div>
+                <div class="intro__right reveal reveal--right">
+                    <div class="intro__img-wrapper img-hover">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Office Interior" class="lazy" data-src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== STATS SECTION ========== -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats__grid reveal reveal--up">
+                <div class="stats__item">
+                    <span class="stats__number" data-count="25">0</span>
+                    <span class="stats__plus">+</span>
+                    <p class="stats__label">Dự án<br>hoàn thành</p>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-count="20">0</span>
+                    <span class="stats__plus">+</span>
+                    <p class="stats__label">Đối tác<br>tin cậy</p>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-count="50">0</span>
+                    <span class="stats__plus">+</span>
+                    <p class="stats__label">Nhân sự<br>chuyên môn</p>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-count="200">0</span>
+                    <span class="stats__plus">+</span>
+                    <p class="stats__label">Khách hàng<br>hài lòng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__hero reveal reveal--up">
+                <div class="about__hero-img img-hover">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="About TS Art Interior" class="lazy" data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" loading="lazy">
+                </div>
+            </div>
+            <div class="about__content">
+                <h2 class="about__title reveal reveal--left">
+                    ABOUT<br>PROJECT
+                </h2>
+                <p class="about__text reveal reveal--right">
+                    TS Art Interior là đơn vị thiết kế nội thất chuyên nghiệp, mang đến giải pháp không gian sống và làm việc đẳng cấp. 
+                    Với đội ngũ kiến trúc sư giàu kinh nghiệm, chúng tôi cam kết tạo nên những không gian vừa thẩm mỹ vừa 
+                    tối ưu công năng, phản ánh cá tính và phong cách riêng của mỗi khách hàng.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CORE VALUES ========== -->
+    <section class="values">
+        <div class="container">
+            <div class="values__grid">
+                <div class="values__images reveal reveal--left">
+                    <div class="values__img-1 img-hover">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Core Values" class="lazy" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" loading="lazy">
+                    </div>
+                    <div class="values__img-2 img-hover">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80" alt="Interior Design" class="lazy" data-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80" loading="lazy">
+                    </div>
+                </div>
+                <div class="values__content reveal reveal--right">
+                    <div class="values__list">
+                        <div class="values__item">
+                            <h3>SÁNG TẠO LIÊN TỤC</h3>
+                            <p>Không ngừng đổi mới, tìm kiếm những giải pháp thiết kế độc đáo và phù hợp.</p>
+                        </div>
+                        <div class="values__item">
+                            <h3>CHẤT LƯỢNG HÀNG ĐẦU</h3>
+                            <p>Mỗi chi tiết đều được chăm chút với tiêu chuẩn cao nhất.</p>
+                        </div>
+                        <div class="values__item">
+                            <h3>KHÁCH HÀNG LÀ TRỌNG TÂM</h3>
+                            <p>Lắng nghe và thấu hiểu để mang đến giải pháp tối ưu nhất.</p>
+                        </div>
+                        <div class="values__item">
+                            <h3>ĐỒNG HÀNH BỀN VỮNG</h3>
+                            <p>Xây dựng mối quan hệ lâu dài dựa trên sự tin tưởng và chuyên nghiệp.</p>
+                        </div>
+                        <div class="values__item">
+                            <h3>TINH THẦN HỢP TÁC</h3>
+                            <p>Phối hợp chặt chẽ giữa các bộ phận để đạt kết quả tốt nhất.</p>
+                        </div>
+                    </div>
+                    <div class="values__badge">
+                        <span class="values__badge-num">05</span>
+                        <span class="values__badge-text">CORE<br>VALUES</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SIGNATURE PROJECTS ========== -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="projects__header reveal reveal--up">
+                <h2 class="projects__title">
+                    SIGNATURE<br>PROJECTS
+                </h2>
+            </div>
+            
+            <div class="projects__list">
+                <!-- Project 01 -->
+                <a href="projects/hsc-office.html" class="project-card reveal reveal--up">
+                    <div class="project-card__number">01</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="HSC Office" class="lazy" data-src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">HSC OFFICE</h3>
+                        <p class="project-card__desc">Văn phòng chứng khoán HSC — Không gian làm việc hiện đại, chuyên nghiệp</p>
+                        <span class="project-card__tag">OFFICE</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 02 -->
+                <a href="projects/grand-marina.html" class="project-card reveal reveal--up reveal--delay-1">
+                    <div class="project-card__number">02</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Grand Marina Saigon" class="lazy" data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">GRAND MARINA SAIGON</h3>
+                        <p class="project-card__desc">Căn hộ cao cấp Grand Marina — Thiết kế sang trọng, tinh tế</p>
+                        <span class="project-card__tag">RESIDENTIAL</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 03 -->
+                <a href="projects/nho-gallery.html" class="project-card reveal reveal--up">
+                    <div class="project-card__number">03</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Sales Gallery N.H.O" class="lazy" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">SALES GALLERY N.H.O</h3>
+                        <p class="project-card__desc">Khu trưng bày bán hàng N.H.O Gempark — Không gian ấn tượng</p>
+                        <span class="project-card__tag">SHOWROOM</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 04 -->
+                <a href="projects/the-marq.html" class="project-card reveal reveal--up reveal--delay-1">
+                    <div class="project-card__number">04</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="The Marq" class="lazy" data-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">THE MARQ</h3>
+                        <p class="project-card__desc">Căn hộ The Marq — Phong cách sống thượng lưu giữa lòng Sài Gòn</p>
+                        <span class="project-card__tag">RESIDENTIAL</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 05 -->
+                <a href="projects/masterise-home.html" class="project-card reveal reveal--up">
+                    <div class="project-card__number">05</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Masterise Home" class="lazy" data-src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">MASTERISE HOME</h3>
+                        <p class="project-card__desc">Masterise Home — Hệ sinh thái nội thất đẳng cấp quốc tế</p>
+                        <span class="project-card__tag">RESIDENTIAL</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 06 -->
+                <a href="projects/opera-residence.html" class="project-card reveal reveal--up reveal--delay-1">
+                    <div class="project-card__number">06</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Opera Residence" class="lazy" data-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">OPERA RESIDENCE</h3>
+                        <p class="project-card__desc">Opera Residence — Nghệ thuật kiến trúc trong từng không gian</p>
+                        <span class="project-card__tag">RESIDENTIAL</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 07 -->
+                <a href="projects/lavida-plus.html" class="project-card reveal reveal--up">
+                    <div class="project-card__number">07</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&q=80" alt="Lavida Plus" class="lazy" data-src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">LAVIDA PLUS</h3>
+                        <p class="project-card__desc">Lavida Plus — Không gian sống xanh, hiện đại và tiện nghi</p>
+                        <span class="project-card__tag">RESIDENTIAL</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 08 -->
+                <a href="projects/alpha-hill.html" class="project-card reveal reveal--up reveal--delay-1">
+                    <div class="project-card__number">08</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18f6b6e0b?w=800&q=80" alt="Alpha Hill" class="lazy" data-src="https://images.unsplash.com/photo-1600566753086-00f18f6b6e0b?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">ALPHA HILL</h3>
+                        <p class="project-card__desc">Alpha Hill — Tổ hợp căn hộ hạng sang giữa trung tâm thành phố</p>
+                        <span class="project-card__tag">RESIDENTIAL</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONNECT / CONTACT SECTION ========== -->
+    <section class="connect" id="connect">
+        <div class="container">
+            <div class="connect__grid">
+                <div class="connect__left reveal reveal--left">
+                    <h2 class="connect__title">LET'S<br>CONNECT</h2>
+                    <p class="connect__subtitle">Hãy để chúng tôi biến ý tưởng<br>của bạn thành hiện thực</p>
+                </div>
+                <div class="connect__right reveal reveal--right">
+                    <form class="connect__form" id="contactForm">
+                        <div class="form__group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Họ và tên</label>
+                            <div class="form__line"></div>
+                        </div>
+                        <div class="form__group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Email</label>
+                            <div class="form__line"></div>
+                        </div>
+                        <div class="form__group">
+                            <input type="tel" id="phone" name="phone" placeholder=" ">
+                            <label for="phone">Số điện thoại</label>
+                            <div class="form__line"></div>
+                        </div>
+                        <div class="form__group">
+                            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Nội dung tin nhắn</label>
+                            <div class="form__line"></div>
+                        </div>
+                        <button type="submit" class="connect__btn">
+                            <span>Gửi tin nhắn</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="connect__info reveal reveal--up">
+                <div class="connect__info-item">
+                    <span class="connect__info-label">Address</span>
+                    <p>TP. Hồ Chí Minh, Việt Nam</p>
+                </div>
+                <div class="connect__info-item">
+                    <span class="connect__info-label">Email</span>
+                    <p>contact@tsartinterior.com</p>
+                </div>
+                <div class="connect__info-item">
+                    <span class="connect__info-label">Phone</span>
+                    <p>+84 (0) 28 1234 5678</p>
+                </div>
+                <div class="connect__info-item">
+                    <span class="connect__info-label">Social</span>
+                    <div class="connect__socials">
+                        <a href="#" aria-label="Facebook">Fb</a>
+                        <a href="#" aria-label="Instagram">Ig</a>
+                        <a href="#" aria-label="LinkedIn">Li</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__logo">TS ART INTERIOR</p>
+                <p class="footer__copy">&copy; 2024 TS Art Interior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
