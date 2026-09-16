@@ -803,169 +803,342 @@ button {
     transform: translate(4px, -4px);
 }
 
-/* ========== CONNECT / CONTACT ========== */
-.connect {
-    padding: var(--space-2xl) 0;
-    background-color: var(--clr-bg-warm);
-}
+/* =========================================================
+   CONNECT SECTION: QUY TRÌNH HỢP TÁC & CONTACTS
+   Matching exact editorial layout from provided mockups
+   ========================================================= */
 
-.connect__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    margin-bottom: var(--space-xl);
-}
-
-.connect__title {
-    font-family: var(--ff-heading);
-    font-size: var(--fs-3xl);
-    font-weight: var(--fw-light);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: var(--space-md);
-}
-
-.connect__subtitle {
-    font-size: var(--fs-base);
-    color: var(--clr-text-light);
-    line-height: 1.6;
-}
-
-/* Form Styles */
-.connect__form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
-.form__group {
+.connect-wrapper {
     position: relative;
+    background-color: var(--clr-bg);
 }
 
-.form__group input,
-.form__group textarea {
-    width: 100%;
-    padding: var(--space-sm) 0;
-    font-family: var(--ff-body);
-    font-size: var(--fs-base);
-    color: var(--clr-text);
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--clr-border);
-    outline: none;
-    transition: border-color var(--transition-fast);
-    resize: none;
-}
-
-.form__group input:focus,
-.form__group textarea:focus {
-    border-bottom-color: var(--clr-accent);
-}
-
-.form__group label {
-    position: absolute;
-    top: var(--space-sm);
-    left: 0;
-    font-size: var(--fs-sm);
-    color: var(--clr-text-muted);
-    pointer-events: none;
-    transition: all var(--transition-fast);
-}
-
-.form__group input:focus ~ label,
-.form__group input:not(:placeholder-shown) ~ label,
-.form__group textarea:focus ~ label,
-.form__group textarea:not(:placeholder-shown) ~ label {
-    top: -0.75rem;
-    font-size: var(--fs-xs);
-    color: var(--clr-accent);
-}
-
-.form__line {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--clr-accent);
-    transition: width var(--transition-smooth);
-}
-
-.form__group input:focus ~ .form__line,
-.form__group textarea:focus ~ .form__line {
-    width: 100%;
-}
-
-.connect__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--fs-sm);
-    font-weight: var(--fw-medium);
-    letter-spacing: 0.1em;
-    color: var(--clr-white);
-    background-color: var(--clr-text);
-    border: 1px solid var(--clr-text);
-    transition: all var(--transition-fast);
-    align-self: flex-start;
-    text-transform: uppercase;
-}
-
-.connect__btn:hover {
-    background-color: var(--clr-accent-dark);
-    border-color: var(--clr-accent-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(201, 169, 110, 0.3);
-}
-
-.connect__btn svg {
-    transition: transform var(--transition-fast);
-}
-
-.connect__btn:hover svg {
-    transform: translate(3px, -3px);
-}
-
-/* Contact Info */
-.connect__info {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-md);
-    padding-top: var(--space-xl);
+/* Subnav Bar inside Connect */
+.connect-subnav {
     border-top: 1px solid var(--clr-border);
+    border-bottom: 1px solid var(--clr-border);
+    padding: 1.25rem 0;
+    background-color: var(--clr-bg);
 }
 
-.connect__info-label {
-    display: block;
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-medium);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--clr-text-muted);
-    margin-bottom: var(--space-xs);
-}
-
-.connect__info-item p {
-    font-size: var(--fs-sm);
-    color: var(--clr-text);
-    line-height: 1.5;
-}
-
-.connect__socials {
+.connect-subnav__list {
     display: flex;
-    gap: var(--space-sm);
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clr-text-light);
 }
 
-.connect__socials a {
-    font-size: var(--fs-sm);
-    font-weight: var(--fw-medium);
+.connect-subnav__list a {
     color: var(--clr-text-light);
     transition: color var(--transition-fast);
 }
 
-.connect__socials a:hover {
+.connect-subnav__list a:hover,
+.connect-subnav__list .active {
+    color: var(--clr-text);
+    font-weight: 600;
+}
+
+.connect-subnav__list .sep {
+    color: var(--clr-border);
+    user-select: none;
+}
+
+/* Part 1: Quy Trình Hợp Tác */
+.process-section {
+    position: relative;
+    padding: 4.5rem 0 6rem 0;
+    background: #fafaf8;
+    overflow: hidden;
+}
+
+.process-bg-watermark {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+    background-image: 
+        linear-gradient(to right, #000 1px, transparent 1px),
+        linear-gradient(to bottom, #000 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.process-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 270px 1fr 320px;
+    gap: 3.5rem;
+    align-items: start;
+}
+
+/* Left Steps: 01, 02, 03 */
+.process-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    padding-top: 1.5rem;
+}
+
+/* Center Col: Heading + Center Photo */
+.process-col-center {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.process-main-title {
+    font-family: var(--ff-heading);
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--clr-text);
+    margin-top: -0.25rem;
+}
+
+.process-center-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+.process-center-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right Col: Top Photo + Steps 04, 05, 06 */
+.process-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+}
+
+.process-top-img {
+    width: 100%;
+    aspect-ratio: 16/11;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+.process-top-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.process-steps-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+}
+
+/* Step Item */
+.process-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.process-step__num {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #888;
+    letter-spacing: 0.08em;
+}
+
+.process-step__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--clr-text);
+    margin-bottom: 0.3rem;
+}
+
+.process-step__desc {
+    font-size: 0.825rem;
+    line-height: 1.7;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Part 2: Contacts Section (Dark Luxury) */
+.contacts-section {
+    background-color: #070707;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.contacts-container {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    min-height: 640px;
+    width: 100%;
+}
+
+.contacts-media {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 520px;
+}
+
+.contacts-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contacts-content {
+    background-color: #070707;
+    padding: 4.5rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.contacts-header-badge {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+}
+
+.contacts-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.contacts-brand__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--ff-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.contacts-brand__logo .dot {
+    color: #f5a623;
+    font-weight: 700;
+}
+
+.contacts-brand__tagline {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+}
+
+.contacts-page-num {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: var(--ff-body);
+}
+
+.contacts-body {
+    margin-bottom: 1.5rem;
+}
+
+.contacts-title {
+    font-family: var(--ff-heading);
+    font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 3.5rem;
+}
+
+.contacts-table {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.contacts-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    align-items: baseline;
+}
+
+.contacts-row__label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.contacts-row__value {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.02em;
+}
+
+.contacts-row__value a {
+    color: rgba(255, 255, 255, 0.95);
+    transition: color var(--transition-fast);
+}
+
+.contacts-row__value a:hover {
     color: var(--clr-accent);
+}
+
+/* Responsive for Process & Contacts */
+@media (max-width: 1100px) {
+    .process-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .process-col-center {
+        grid-column: span 2;
+        order: -1;
+    }
+
+    .contacts-content {
+        padding: 3rem 2.5rem;
+    }
+}
+
+@media (max-width: 860px) {
+    .contacts-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts-media {
+        min-height: 380px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .process-col-center {
+        grid-column: 1;
+    }
 }
 
 /* ========== FOOTER ========== */

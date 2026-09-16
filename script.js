@@ -57,29 +57,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ========== ACTIVE NAV LINK ON SCROLL ==========
-    const sections = document.querySelectorAll('section[id]');
     const navLinksAll = document.querySelectorAll('.nav__link[data-section]');
+    const trackedSections = [
+        { id: 'hero', name: 'hero' },
+        { id: 'about', name: 'about' },
+        { id: 'projects', name: 'projects' },
+        { id: 'connect', name: 'connect' }
+    ];
 
     const highlightNav = () => {
-        const scrollY = window.pageYOffset + 200;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight
+        );
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+        // When scrolled near or to the bottom of the page, always activate Connect
+        if (scrollY + windowHeight >= documentHeight - 120) {
+            navLinksAll.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('data-section') === 'connect');
+            });
+            return;
+        }
 
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                navLinksAll.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-section') === sectionId) {
-                        link.classList.add('active');
-                    }
-                });
+        let activeId = 'hero';
+        trackedSections.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                // When section enters the upper 45% of viewport and is still visible
+                if (rect.top <= windowHeight * 0.45 && rect.bottom > 100) {
+                    activeId = id;
+                }
             }
+        });
+
+        navLinksAll.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
         });
     };
 
     window.addEventListener('scroll', highlightNav, { passive: true });
+    window.addEventListener('resize', highlightNav, { passive: true });
+    highlightNav();
 
     // ========== SCROLL REVEAL ANIMATION ==========
     const revealElements = document.querySelectorAll('.reveal');

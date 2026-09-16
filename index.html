@@ -357,69 +357,117 @@
         </div>
     </section>
 
-    <!-- ========== CONNECT / CONTACT SECTION ========== -->
-    <section class="connect" id="connect">
-        <div class="container">
-            <div class="connect__grid">
-                <div class="connect__left reveal reveal--left">
-                    <h2 class="connect__title">LET'S<br>CONNECT</h2>
-                    <p class="connect__subtitle">Hãy để chúng tôi biến ý tưởng<br>của bạn thành hiện thực</p>
-                </div>
-                <div class="connect__right reveal reveal--right">
-                    <form class="connect__form" id="contactForm">
-                        <div class="form__group">
-                            <input type="text" id="name" name="name" required placeholder=" ">
-                            <label for="name">Họ và tên</label>
-                            <div class="form__line"></div>
-                        </div>
-                        <div class="form__group">
-                            <input type="email" id="email" name="email" required placeholder=" ">
-                            <label for="email">Email</label>
-                            <div class="form__line"></div>
-                        </div>
-                        <div class="form__group">
-                            <input type="tel" id="phone" name="phone" placeholder=" ">
-                            <label for="phone">Số điện thoại</label>
-                            <div class="form__line"></div>
-                        </div>
-                        <div class="form__group">
-                            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
-                            <label for="message">Nội dung tin nhắn</label>
-                            <div class="form__line"></div>
-                        </div>
-                        <button type="submit" class="connect__btn">
-                            <span>Gửi tin nhắn</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <!-- ========== CONNECT / PROCESS & CONTACT SECTION ========== -->
+    <section class="connect-wrapper" id="connect">
+        <!-- Subnav Bar -->
+        
 
-            <div class="connect__info reveal reveal--up">
-                <div class="connect__info-item">
-                    <span class="connect__info-label">Address</span>
-                    <p>TP. Hồ Chí Minh, Việt Nam</p>
-                </div>
-                <div class="connect__info-item">
-                    <span class="connect__info-label">Email</span>
-                    <p>contact@tsartinterior.com</p>
-                </div>
-                <div class="connect__info-item">
-                    <span class="connect__info-label">Phone</span>
-                    <p>+84 (0) 28 1234 5678</p>
-                </div>
-                <div class="connect__info-item">
-                    <span class="connect__info-label">Social</span>
-                    <div class="connect__socials">
-                        <a href="#" aria-label="Facebook">Fb</a>
-                        <a href="#" aria-label="Instagram">Ig</a>
-                        <a href="#" aria-label="LinkedIn">Li</a>
+        <!-- Part 1: Quy Trình Hợp Tác -->
+        <section class="process-section">
+            <div class="process-bg-watermark"></div>
+            <div class="container">
+                <div class="process-grid">
+                    <!-- Left Steps: 01, 02, 03 -->
+                    <div class="process-col-left reveal reveal--left">
+                        <div class="process-step">
+                            <span class="process-step__num">01</span>
+                            <h3 class="process-step__title">TƯ VẤN</h3>
+                            <p class="process-step__desc">Khách hàng trao đổi nhu cầu, gửi yêu cầu thiết kế. TS Art tiếp nhận và tư vấn, khảo sát hiện trạng, đưa ra giải pháp và concept.</p>
+                        </div>
+                        <div class="process-step">
+                            <span class="process-step__num">02</span>
+                            <h3 class="process-step__title">KÝ HỢP ĐỒNG</h3>
+                            <p class="process-step__desc">Chuẩn bị hợp đồng và các giấy tờ cần thiết để thi công. Khách hàng xem xét và ký duyệt.</p>
+                        </div>
+                        <div class="process-step">
+                            <span class="process-step__num">03</span>
+                            <h3 class="process-step__title">TRIỂN KHAI THIẾT KẾ</h3>
+                            <p class="process-step__desc">Nhà thiết kế chuẩn bị bản vẽ 3D phù hợp với yêu cầu. Khách hàng đợi bản vẽ và duyệt vật liệu.</p>
+                        </div>
+                    </div>
+
+                    <!-- Center Column: Main Title + Center Feature Image -->
+                    <div class="process-col-center">
+                        <h2 class="process-main-title reveal reveal--up">
+                            QUY TRÌNH<br>HỢP TÁC
+                        </h2>
+                        <div class="process-center-img img-hover reveal reveal--up reveal--delay-1">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000&q=80" alt="Living Room Space" class="lazy" data-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000&q=80" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Top Image + Steps 04, 05, 06 -->
+                    <div class="process-col-right reveal reveal--right">
+                        <div class="process-top-img img-hover">
+                            <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&q=80" alt="Bedroom Vanity Corner" class="lazy" data-src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&q=80" loading="lazy">
+                        </div>
+                        <div class="process-steps-right">
+                            <div class="process-step">
+                                <span class="process-step__num">04</span>
+                                <h3 class="process-step__title">TRIỂN KHAI BẢN VẼ KỸ THUẬT</h3>
+                                <p class="process-step__desc">Vẽ 2D để thi công và gia công đồ nội thất. Khách hàng kiểm tra và nhận báo giá chi tiết cho từng hạng mục.</p>
+                            </div>
+                            <div class="process-step">
+                                <span class="process-step__num">05</span>
+                                <h3 class="process-step__title">THI CÔNG, GIÁM SÁT</h3>
+                                <p class="process-step__desc">Lắp đặt camera giám sát. Thi công theo bản vẽ. Cập nhật tình hình liên tục cho khách hàng.</p>
+                            </div>
+                            <div class="process-step">
+                                <span class="process-step__num">06</span>
+                                <h3 class="process-step__title">NGHIỆM THU & BÀN GIAO</h3>
+                                <p class="process-step__desc">Nghiệm thu cùng khách hàng. Tặng quà bàn giao và phiếu bảo hành. Kết thúc quy trình tư vấn thiết kế - thi công nội thất.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Part 2: Contacts Section (Dark Luxury) -->
+        <section class="contacts-section">
+            <div class="contacts-container">
+                <!-- Left: Luxury Kitchen Island Photo -->
+                <div class="contacts-media img-hover reveal reveal--left">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85" alt="TS Art Luxury Kitchen Interior" class="lazy" data-src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85" loading="lazy">
+                </div>
+
+                <!-- Right: Editorial Contacts Info -->
+                <div class="contacts-content reveal reveal--right">
+                    <div class="contacts-header-badge">
+                        <div class="contacts-brand">
+                            <div class="contacts-brand__logo">
+                                <span>TS ART INTERI<span class="dot">●</span>R</span>
+                            </div>
+                            <span class="contacts-brand__tagline">TURNKEY SERVICE</span>
+                        </div>
+                        <span class="contacts-page-num">79</span>
+                    </div>
+
+                    <div class="contacts-body">
+                        <h2 class="contacts-title">CONTACTS</h2>
+                        <div class="contacts-table">
+                            <div class="contacts-row">
+                                <span class="contacts-row__label">ĐỊA CHỈ</span>
+                                <span class="contacts-row__value">28 Tạ Hiện, phường Cát Lái, TP. HCM</span>
+                            </div>
+                            <div class="contacts-row">
+                                <span class="contacts-row__label">HOTLINE</span>
+                                <span class="contacts-row__value"><a href="tel:+84934008585">(+84) 934 008 585</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contacts-action">
+                        <a href="tel:+84934008585" class="contacts-btn">
+                            <span>Liên hệ tư vấn</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
     <!-- ========== FOOTER ========== -->
