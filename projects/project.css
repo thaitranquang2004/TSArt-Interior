@@ -6,7 +6,7 @@
 .project-page {
     background-color: var(--clr-bg);
     color: var(--clr-text);
-    padding-top: var(--header-height);
+    padding-top: 0;
 }
 
 /* Subnav / Divider Bar */
