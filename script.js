@@ -237,77 +237,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroSlides.length > 0) {
         let currentSlide = 0;
-        let slideInterval = null;
-        const slideDuration = 5500; // 5.5s per slide
+        let slideTimer = null;
+        const SLIDE_DURATION = 5000; // 5.0s per slide
 
-        const goToSlide = (index) => {
-            if (index < 0) {
-                currentSlide = heroSlides.length - 1;
-            } else if (index >= heroSlides.length) {
-                currentSlide = 0;
-            } else {
-                currentSlide = index;
+        const updatePagination = (index) => {
+            heroPagItems.forEach((item, i) => {
+                const progress = item.querySelector('.hero__pag-progress');
+                if (i === index) {
+                    item.classList.add('active');
+                    if (progress) {
+                        progress.style.animation = 'none';
+                        void progress.offsetWidth; // Force reflow to reliably restart fill animation
+                        progress.style.animation = `heroSlideProgress ${SLIDE_DURATION}ms linear forwards`;
+                    }
+                } else {
+                    item.classList.remove('active');
+                    if (progress) {
+                        progress.style.animation = 'none';
+                    }
+                }
+            });
+        };
+
+        const goToSlide = (newIndex) => {
+            let target = newIndex;
+            if (target < 0) target = heroSlides.length - 1;
+            if (target >= heroSlides.length) target = 0;
+
+            if (target === currentSlide && heroSlides[target].classList.contains('active')) {
+                return;
             }
 
+            const prevIndex = currentSlide;
+            currentSlide = target;
+
             heroSlides.forEach((slide, i) => {
+                slide.classList.remove('prev');
                 if (i === currentSlide) {
                     slide.classList.add('active');
+                } else if (i === prevIndex) {
+                    slide.classList.add('prev');
+                    slide.classList.remove('active');
                 } else {
                     slide.classList.remove('active');
                 }
             });
 
-            heroPagItems.forEach((item, i) => {
-                if (i === currentSlide) {
-                    item.classList.add('active');
-                    const progress = item.querySelector('.hero__pag-progress');
-                    if (progress) {
-                        progress.style.animation = 'none';
-                        progress.offsetHeight; // Trigger reflow to restart fill animation
-                        progress.style.animation = '';
-                    }
-                } else {
-                    item.classList.remove('active');
-                }
-            });
+            updatePagination(currentSlide);
+            restartAutoPlay();
         };
 
-        const startAutoPlay = () => {
-            stopAutoPlay();
-            slideInterval = setInterval(() => {
-                goToSlide(currentSlide + 1);
-            }, slideDuration);
-        };
-
-        const stopAutoPlay = () => {
-            if (slideInterval) {
-                clearInterval(slideInterval);
-                slideInterval = null;
+        const restartAutoPlay = () => {
+            if (slideTimer) {
+                clearInterval(slideTimer);
             }
+            slideTimer = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, SLIDE_DURATION);
         };
 
         // Arrow controls
         if (heroPrevBtn) {
-            heroPrevBtn.addEventListener('click', () => {
+            heroPrevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 goToSlide(currentSlide - 1);
-                startAutoPlay();
             });
         }
 
         if (heroNextBtn) {
-            heroNextBtn.addEventListener('click', () => {
+            heroNextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 goToSlide(currentSlide + 1);
-                startAutoPlay();
             });
         }
 
-        // Pagination buttons
-        heroPagItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const targetIndex = parseInt(item.getAttribute('data-index'), 10);
-                if (!isNaN(targetIndex) && targetIndex !== currentSlide) {
-                    goToSlide(targetIndex);
-                    startAutoPlay();
+        // Direct dot clicks
+        heroPagItems.forEach((item, idx) => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (idx !== currentSlide) {
+                    goToSlide(idx);
                 }
             });
         });
@@ -316,41 +325,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroSection = document.querySelector('.hero');
         if (heroSection) {
             let touchStartX = 0;
-            let touchEndX = 0;
-
             heroSection.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
+                touchStartX = e.changedTouches[0].clientX;
             }, { passive: true });
 
             heroSection.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
+                const touchEndX = e.changedTouches[0].clientX;
                 const diffX = touchStartX - touchEndX;
-                if (Math.abs(diffX) > 45) {
+                if (Math.abs(diffX) > 40) {
                     if (diffX > 0) {
                         goToSlide(currentSlide + 1);
                     } else {
                         goToSlide(currentSlide - 1);
                     }
-                    startAutoPlay();
                 }
             }, { passive: true });
-
-            // Pause on hover
-            heroSection.addEventListener('mouseenter', stopAutoPlay);
-            heroSection.addEventListener('mouseleave', startAutoPlay);
         }
 
-        // Tab visibility check
+        // Tab visibility check (pause when inactive, restart when visible)
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                stopAutoPlay();
+                if (slideTimer) {
+                    clearInterval(slideTimer);
+                    slideTimer = null;
+                }
             } else {
-                startAutoPlay();
+                goToSlide(currentSlide);
             }
         });
 
-        // Start initial auto play
-        startAutoPlay();
+        // Initialize first slide progress and start auto-play
+        updatePagination(0);
+        restartAutoPlay();
     }
 
     // ========== IMAGE HOVER MAGNETIC EFFECT ==========
