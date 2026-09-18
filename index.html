@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,27 +17,79 @@
     <div id="header-placeholder" data-base-path=""></div>
     <script src="header.js"></script>
 
-    <!-- ========== HERO SECTION ========== -->
+    <!-- ========== HERO SECTION (SLIDER 4 IMAGES) ========== -->
     <section class="hero" id="hero">
         <div class="hero__bg">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80" alt="TS Art Interior Design" class="hero__bg-img" loading="eager">
+            <!-- 4 Hero Slides -->
+            <div class="hero__slider">
+                <div class="hero__slide active" data-slide="0">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=85" alt="TS Art Interior Design - Không gian phòng khách sang trọng" class="hero__bg-img" loading="eager">
+                </div>
+                <div class="hero__slide" data-slide="1">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=85" alt="TS Art Interior Design - Căn hộ penthouse cao cấp" class="hero__bg-img" loading="lazy">
+                </div>
+                <div class="hero__slide" data-slide="2">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=85" alt="TS Art Interior Design - Kiến trúc bếp & phòng ăn đương đại" class="hero__bg-img" loading="lazy">
+                </div>
+                <div class="hero__slide" data-slide="3">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=85" alt="TS Art Interior Design - Không gian làm việc & sảnh trưng bày" class="hero__bg-img" loading="lazy">
+                </div>
+            </div>
             <div class="hero__overlay"></div>
         </div>
-        <div class="hero__content">
-            <div class="hero__title-wrap reveal reveal--up">
+
+        <div class="hero__container">
+            <!-- Center Editorial Typography -->
+            <div class="hero__editorial reveal reveal--up">
+                <div class="hero__eyebrow">
+                    <span class="hero__eyebrow-line"></span>
+                    <span class="hero__eyebrow-text">EST. 2021 &nbsp;•&nbsp; ARCHITECTURAL &amp; INTERIOR STUDIO</span>
+                    <span class="hero__eyebrow-line"></span>
+                </div>
+
                 <h1 class="hero__title">
-                    <span class="hero__title-line">PORT</span>
-                    <span class="hero__title-line">FOLIO</span>
+                    Kiến Tạo Không Gian <br>
+                    <span class="hero__title-italic">Độc Bản</span> &amp; Tinh Tế
                 </h1>
+
+                <p class="hero__subtitle">
+                    Giao thoa giữa tư duy kiến trúc đương đại, nghệ thuật bài trí tinh xảo và cảm xúc chân thực trong từng mét vuông không gian sống.
+                </p>
             </div>
-            <div class="hero__subtitle reveal reveal--up reveal--delay-1">
-                <p>Premium Interior Design</p>
-            </div>
-            
         </div>
-        <div class="hero__scroll">
-            <span>Scroll</span>
-            <div class="hero__scroll-line"></div>
+
+        <!-- Hero Slider Controls (Pagination & Arrows) -->
+        <div class="hero__controls">
+            <button class="hero__control-arrow hero__control-arrow--prev" aria-label="Slide trước">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="hero__pagination">
+                <button class="hero__pag-item active" data-index="0" aria-label="Xem ảnh 1">
+                    <span class="hero__pag-num">01</span>
+                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
+                </button>
+                <button class="hero__pag-item" data-index="1" aria-label="Xem ảnh 2">
+                    <span class="hero__pag-num">02</span>
+                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
+                </button>
+                <button class="hero__pag-item" data-index="2" aria-label="Xem ảnh 3">
+                    <span class="hero__pag-num">03</span>
+                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
+                </button>
+                <button class="hero__pag-item" data-index="3" aria-label="Xem ảnh 4">
+                    <span class="hero__pag-num">04</span>
+                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
+                </button>
+            </div>
+
+            <button class="hero__control-arrow hero__control-arrow--next" aria-label="Slide tiếp theo">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
         </div>
     </section>
 
@@ -148,7 +200,7 @@
                         <!-- Cột 1 (3 giá trị) -->
                         <div class="values__col reveal reveal--up">
                             <div class="values__item">
-                                <h3 class="values__item-title">CHỦ ĐỘNG TRONG TỪNG CHI TIẾT</h3>
+                                <h3 class="values__item-title">CHỦ ĐỘNG TRONG CHI TIẾT</h3>
                                 <p class="values__item-desc">Quản lý xuyên suốt từ kế hoạch, tiến độ đến từng hạng mục hoàn thiện, đảm bảo dự án được kiểm soát chặt chẽ ngay từ đầu.</p>
                             </div>
                             <div class="values__item">
@@ -202,9 +254,9 @@
                         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Sales Gallery N.H.O" class="lazy" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" loading="lazy">
                     </div>
                     <div class="project-card__info">
-                        <h3 class="project-card__name">SALES GALLERY N.H.O</h3>
+                        <h3 class="project-card__name">SALES GALLERY</h3>
                         <p class="project-card__desc">Khu trưng bày & nhà mẫu dự án N.H.O — Không gian kiến trúc đương đại kết hợp tinh tế nghệ thuật trưng bày và trải nghiệm thị giác</p>
-                        <span class="project-card__tag">SHOWROOM</span>
+                        <span class="project-card__tag">OFFICE</span>
                     </div>
                     <div class="project-card__arrow">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -240,7 +292,7 @@
                     <div class="project-card__info">
                         <h3 class="project-card__name">TON DUC THANG UNIVERSITY</h3>
                         <p class="project-card__desc">Không gian học thuật và giảng đường phức hợp — Thiết kế chuẩn mực, truyền cảm hứng nghiên cứu và học tập</p>
-                        <span class="project-card__tag">EDUCATION</span>
+                        <span class="project-card__tag">OFFICE</span>
                     </div>
                     <div class="project-card__arrow">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -267,9 +319,27 @@
                     </div>
                 </a>
 
-                <!-- Project 05 -->
-                <a href="projects/zeit-river.html" class="project-card reveal reveal--up">
+                <!-- Project 06 -->
+                <a href="projects/hue-tam-restaurant.html" class="project-card reveal reveal--up reveal--delay-1">
                     <div class="project-card__number">05</div>
+                    <div class="project-card__img img-hover">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Hue Tam Restaurant" class="lazy" data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" loading="lazy">
+                    </div>
+                    <div class="project-card__info">
+                        <h3 class="project-card__name">HUE TAM RESTAURANT</h3>
+                        <p class="project-card__desc">Nhà hàng ẩm thực cao cấp — Giao thoa giữa nét văn hoá truyền thống và phong cách tối giản thanh lịch</p>
+                        <span class="project-card__tag">RETAIL</span>
+                    </div>
+                    <div class="project-card__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 07 -->
+                <a href="projects/zeit-river.html" class="project-card reveal reveal--up">
+                    <div class="project-card__number">06</div>
                     <div class="project-card__img img-hover">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Zeit River" class="lazy" data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" loading="lazy">
                     </div>
@@ -285,23 +355,6 @@
                     </div>
                 </a>
 
-                <!-- Project 06 -->
-                <a href="projects/hue-tam-restaurant.html" class="project-card reveal reveal--up reveal--delay-1">
-                    <div class="project-card__number">06</div>
-                    <div class="project-card__img img-hover">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Hue Tam Restaurant" class="lazy" data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" loading="lazy">
-                    </div>
-                    <div class="project-card__info">
-                        <h3 class="project-card__name">HUE TAM RESTAURANT</h3>
-                        <p class="project-card__desc">Nhà hàng ẩm thực cao cấp — Giao thoa giữa nét văn hoá truyền thống và phong cách tối giản thanh lịch</p>
-                        <span class="project-card__tag">HOSPITALITY</span>
-                    </div>
-                    <div class="project-card__arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                        </svg>
-                    </div>
-                </a>
 
                 <!-- Project 07 -->
                 <a href="projects/grand-marina.html" class="project-card reveal reveal--up">
@@ -425,7 +478,7 @@
                             </div>
                             <span class="contacts-brand__tagline">TURNKEY SERVICE</span>
                         </div>
-                        <span class="contacts-page-num">79</span>
+                        
                     </div>
 
                     <div class="contacts-body">

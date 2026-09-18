@@ -229,20 +229,128 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========== PARALLAX EFFECT ON HERO ==========
-    const heroBg = document.querySelector('.hero__bg-img');
+    // ========== HERO SLIDER (4 IMAGES) ==========
+    const heroSlides = document.querySelectorAll('.hero__slide');
+    const heroPagItems = document.querySelectorAll('.hero__pag-item');
+    const heroPrevBtn = document.querySelector('.hero__control-arrow--prev');
+    const heroNextBtn = document.querySelector('.hero__control-arrow--next');
 
-    if (heroBg) {
-        const handleParallax = () => {
-            const scrollY = window.pageYOffset;
-            const heroHeight = document.querySelector('.hero').offsetHeight;
+    if (heroSlides.length > 0) {
+        let currentSlide = 0;
+        let slideInterval = null;
+        const slideDuration = 5500; // 5.5s per slide
 
-            if (scrollY < heroHeight) {
-                heroBg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+        const goToSlide = (index) => {
+            if (index < 0) {
+                currentSlide = heroSlides.length - 1;
+            } else if (index >= heroSlides.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
+            }
+
+            heroSlides.forEach((slide, i) => {
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            heroPagItems.forEach((item, i) => {
+                if (i === currentSlide) {
+                    item.classList.add('active');
+                    const progress = item.querySelector('.hero__pag-progress');
+                    if (progress) {
+                        progress.style.animation = 'none';
+                        progress.offsetHeight; // Trigger reflow to restart fill animation
+                        progress.style.animation = '';
+                    }
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        };
+
+        const startAutoPlay = () => {
+            stopAutoPlay();
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, slideDuration);
+        };
+
+        const stopAutoPlay = () => {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
             }
         };
 
-        window.addEventListener('scroll', handleParallax, { passive: true });
+        // Arrow controls
+        if (heroPrevBtn) {
+            heroPrevBtn.addEventListener('click', () => {
+                goToSlide(currentSlide - 1);
+                startAutoPlay();
+            });
+        }
+
+        if (heroNextBtn) {
+            heroNextBtn.addEventListener('click', () => {
+                goToSlide(currentSlide + 1);
+                startAutoPlay();
+            });
+        }
+
+        // Pagination buttons
+        heroPagItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetIndex = parseInt(item.getAttribute('data-index'), 10);
+                if (!isNaN(targetIndex) && targetIndex !== currentSlide) {
+                    goToSlide(targetIndex);
+                    startAutoPlay();
+                }
+            });
+        });
+
+        // Touch swipe support for mobile
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            heroSection.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            heroSection.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diffX = touchStartX - touchEndX;
+                if (Math.abs(diffX) > 45) {
+                    if (diffX > 0) {
+                        goToSlide(currentSlide + 1);
+                    } else {
+                        goToSlide(currentSlide - 1);
+                    }
+                    startAutoPlay();
+                }
+            }, { passive: true });
+
+            // Pause on hover
+            heroSection.addEventListener('mouseenter', stopAutoPlay);
+            heroSection.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Tab visibility check
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        });
+
+        // Start initial auto play
+        startAutoPlay();
     }
 
     // ========== IMAGE HOVER MAGNETIC EFFECT ==========

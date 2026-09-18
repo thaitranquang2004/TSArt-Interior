@@ -33,14 +33,14 @@
 
     // 2. Danh sách 8 dự án trong Signature Projects (thêm hoặc sửa dự án tại đây)
     const projectsList = [
-        { slug: 'sales-gallery-nho', title: '01 — Sales Gallery N.H.O' },
-        { slug: 'hsc-office', title: '02 — HSC Office' },
-        { slug: 'ton-duc-thang-university', title: '03 — Ton Duc Thang University' },
-        { slug: 'viinriic-perfume', title: '04 — ViinRiic Pefum Thiso Mall' },
-        { slug: 'zeit-river', title: '05 — Zeit River' },
-        { slug: 'hue-tam-restaurant', title: '06 — Hue Tam Restaurant' },
-        { slug: 'grand-marina', title: '07 — Grand Marina Saigon' },
-        { slug: 'the-river-thu-thiem', title: '08 — The River Thủ Thiêm' }
+        { slug: 'sales-gallery-nho', title: 'Sales Gallery' },
+        { slug: 'hsc-office', title: 'HSC Office' },
+        { slug: 'ton-duc-thang-university', title: 'Ton Duc Thang University' },
+        { slug: 'viinriic-perfume', title: 'ViinRiic Pefum Thiso Mall' },
+        { slug: 'hue-tam-restaurant', title: 'Hue Tam Restaurant' },
+        { slug: 'zeit-river', title: 'Zeit River' },
+        { slug: 'grand-marina', title: 'Grand Marina Saigon' },
+        { slug: 'the-river-thu-thiem', title: 'The River Thủ Thiêm' }
     ];
 
     // 3. Đường dẫn menu

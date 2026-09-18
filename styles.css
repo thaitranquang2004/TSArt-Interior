@@ -316,14 +316,16 @@ button {
     transform: rotate(-45deg) translate(5px, -4px);
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO SECTION (EDITORIAL LUXURY) ========== */
+/* ========== HERO SECTION (SLIDER 4 IMAGES) ========== */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
+    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(6.5rem, 11vh, 8.5rem) 0 clamp(4.5rem, 9vh, 6.5rem);
     overflow: hidden;
 }
 
@@ -331,109 +333,243 @@ button {
     position: absolute;
     inset: 0;
     z-index: 0;
+    overflow: hidden;
 }
 
-.hero__bg-img {
+/* 4-Image Slider */
+.hero__slider {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero__slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.4s;
+    overflow: hidden;
+}
+
+.hero__slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.hero__slide .hero__bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.05);
-    animation: heroZoom 20s ease-in-out infinite alternate;
+    transform: scale(1.03);
+    transition: transform 7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@keyframes heroZoom {
-    from { transform: scale(1.05); }
-    to { transform: scale(1.15); }
+.hero__slide.active .hero__bg-img {
+    transform: scale(1.12);
 }
 
 .hero__overlay {
     position: absolute;
     inset: 0;
+    z-index: 2;
+    pointer-events: none;
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0.3) 50%,
-        rgba(0, 0, 0, 0.6) 100%
+        rgba(10, 10, 10, 0.58) 0%,
+        rgba(10, 10, 10, 0.3) 35%,
+        rgba(10, 10, 10, 0.48) 72%,
+        rgba(255, 255, 255, 0.55) 93%,
+        #ffffff 100%
     );
 }
 
-.hero__content {
+.hero__container {
     position: relative;
-    z-index: 1;
-    padding: var(--space-xl) var(--space-md);
-    padding-bottom: var(--space-lg);
+    z-index: 3;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
-}
-
-.hero__title {
-    font-family: var(--ff-heading);
-    font-size: var(--fs-hero);
-    font-weight: var(--fw-light);
-    color: var(--clr-white);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-md);
-}
-
-.hero__title-line {
-    display: block;
-}
-
-.hero__subtitle {
-    font-size: var(--fs-sm);
-    font-weight: var(--fw-light);
-    color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: var(--space-lg);
-}
-
-.hero__breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-}
-
-.hero__breadcrumb .active {
-    color: var(--clr-white);
-}
-
-.hero__breadcrumb .sep {
-    color: rgba(255, 255, 255, 0.3);
-}
-
-.hero__scroll {
-    position: absolute;
-    right: var(--space-md);
-    bottom: var(--space-lg);
-    z-index: 1;
+    padding: 0 clamp(1.25rem, 4vw, 3.5rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-xs);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.15em;
+    justify-content: center;
+}
+
+/* Center Editorial Content */
+.hero__editorial {
+    text-align: center;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
+}
+
+.hero__eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.hero__eyebrow-text {
+    font-family: 'Outfit', var(--ff-body), -apple-system, sans-serif;
+    font-size: clamp(0.72rem, 0.9vw, 0.82rem);
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.92);
     text-transform: uppercase;
-    writing-mode: vertical-rl;
 }
 
-.hero__scroll-line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
-    animation: scrollLine 2s ease-in-out infinite;
+.hero__title {
+    font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    font-size: clamp(2.6rem, 5.8vw, 5.2rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: #ffffff;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+    margin: 0 auto;
 }
 
-@keyframes scrollLine {
-    0%, 100% { opacity: 1; transform: scaleY(1); }
-    50% { opacity: 0.3; transform: scaleY(0.5); }
+.hero__title-italic {
+    font-style: italic;
+    font-weight: 300;
+    color: #f7ede2;
+    letter-spacing: -0.01em;
+}
+
+.hero__subtitle {
+    font-family: 'Outfit', var(--ff-body), -apple-system, sans-serif;
+    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.75;
+    max-width: 640px;
+    margin: clamp(1.2rem, 2vh, 1.75rem) auto 0;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Slider Controls (Pagination & Arrows) */
+.hero__controls {
+    position: absolute;
+    bottom: clamp(2rem, 4vh, 3.25rem);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.85rem, 1.5vw, 1.5rem);
+    background: rgba(18, 17, 16, 0.52);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    user-select: none;
+}
+
+.hero__control-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+}
+
+.hero__control-arrow:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.16);
+    transform: scale(1.1);
+}
+
+.hero__pagination {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1vw, 0.85rem);
+}
+
+.hero__pag-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem 0.35rem;
+    transition: all 0.3s ease;
+}
+
+.hero__pag-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+.hero__pag-bar {
+    width: 24px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: width 0.35s ease, background 0.35s ease;
+}
+
+.hero__pag-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.hero__pag-item.active .hero__pag-num {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.hero__pag-item.active .hero__pag-bar {
+    background: rgba(255, 255, 255, 0.35);
+    width: 38px;
+}
+
+.hero__pag-item.active .hero__pag-progress {
+    animation: heroSlideProgress 5.5s linear forwards;
+}
+
+@keyframes heroSlideProgress {
+    from { width: 0%; }
+    to { width: 100%; }
 }
 
 /* ========== INTRO / CALENDAR SECTION ========== */
@@ -1736,12 +1872,45 @@ button {
         gap: var(--space-sm);
         text-align: center;
     }
+
 }
 
 @media (max-width: 480px) {
     :root {
         --fs-hero: 2.5rem;
         --fs-3xl: 1.75rem;
+    }
+
+    .hero {
+        min-height: 100svh;
+        padding: 5.5rem 0 2rem;
+    }
+
+    .hero__editorial {
+        padding: 1rem 0;
+    }
+
+    .hero__eyebrow {
+        gap: 0.75rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .hero__eyebrow-line {
+        width: 18px;
+    }
+
+    .hero__controls {
+        bottom: 1.5rem;
+        gap: 0.6rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    .hero__pag-bar {
+        width: 16px;
+    }
+
+    .hero__pag-item.active .hero__pag-bar {
+        width: 26px;
     }
 
     .stats__grid {
