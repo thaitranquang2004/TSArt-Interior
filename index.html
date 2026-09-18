@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -42,20 +42,34 @@
     </section>
 
     <!-- ========== CALENDAR / INTRO SECTION ========== -->
-    <section class="intro" id="intro">
+    <section class="intro calendar-section" id="intro">
         <div class="container">
             <div class="intro__grid">
                 <div class="intro__left reveal reveal--left">
-                    <h2 class="section-title">Calendar</h2>
-                    <ul class="intro__list">
-                        <li><span class="intro__num">1</span> Khởi tạo ý tưởng</li>
-                        <li><span class="intro__num">2</span> Triển khai thiết kế</li>
-                        <li><span class="intro__num">3</span> Thi công & bàn giao</li>
-                    </ul>
+                    <h2 class="intro__title">Calender</h2>
+                    <div class="intro__list">
+                        <a href="#about" class="intro__item">
+                            <span class="intro__circle">1</span>
+                            <span class="intro__text">Chúng tôi là ai?</span>
+                        </a>
+                        <a href="#projects" class="intro__item">
+                            <span class="intro__circle">2</span>
+                            <span class="intro__text">TS Art Interior đã làm gì?</span>
+                        </a>
+                        <a href="#connect" class="intro__item">
+                            <span class="intro__circle">3</span>
+                            <span class="intro__text">TS Art Interior hợp tác những ai?</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="intro__right reveal reveal--right">
-                    <div class="intro__img-wrapper img-hover">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Office Interior" class="lazy" data-src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" loading="lazy">
+                    <div class="intro__gallery">
+                        <div class="intro__img-box intro__img-box--doors img-hover">
+                            <img src="assets/calendar-doors.png" alt="TS Art Doors 1 & 2" loading="lazy">
+                        </div>
+                        <div class="intro__img-box intro__img-box--office img-hover">
+                            <img src="assets/calendar-office.png" alt="TS Art Executive Office" loading="lazy">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,24 +81,28 @@
         <div class="container">
             <div class="stats__grid reveal reveal--up">
                 <div class="stats__item">
-                    <span class="stats__number" data-count="25">0</span>
-                    <span class="stats__plus">+</span>
-                    <p class="stats__label">Dự án<br>hoàn thành</p>
+                    <div class="stats__num-wrap">
+                        <span class="stats__number" data-count="25">0</span><span class="stats__plus">+</span>
+                    </div>
+                    <p class="stats__label">Nhân sự<br>chủ lực</p>
                 </div>
                 <div class="stats__item">
-                    <span class="stats__number" data-count="20">0</span>
-                    <span class="stats__plus">+</span>
-                    <p class="stats__label">Đối tác<br>tin cậy</p>
+                    <div class="stats__num-wrap">
+                        <span class="stats__number" data-count="20">0</span><span class="stats__plus">+</span>
+                    </div>
+                    <p class="stats__label">Dự án chỉ riêng tại<br>The River Thủ Thiêm</p>
                 </div>
                 <div class="stats__item">
-                    <span class="stats__number" data-count="50">0</span>
-                    <span class="stats__plus">+</span>
-                    <p class="stats__label">Nhân sự<br>chuyên môn</p>
+                    <div class="stats__num-wrap">
+                        <span class="stats__number" data-count="50">0</span><span class="stats__plus">+</span>
+                    </div>
+                    <p class="stats__label">Dự án tại trên<br>Tp. Hồ Chí Minh</p>
                 </div>
                 <div class="stats__item">
-                    <span class="stats__number" data-count="200">0</span>
-                    <span class="stats__plus">+</span>
-                    <p class="stats__label">Khách hàng<br>hài lòng</p>
+                    <div class="stats__num-wrap">
+                        <span class="stats__number" data-count="200">0</span><span class="stats__plus">+</span>
+                    </div>
+                    <p class="stats__label">Sản phẩm<br>thiết kế</p>
                 </div>
             </div>
         </div>
@@ -95,60 +113,72 @@
         <div class="container">
             <div class="about__hero reveal reveal--up">
                 <div class="about__hero-img img-hover">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="About TS Art Interior" class="lazy" data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" loading="lazy">
+                    <img src="assets/about-panorama.png" alt="TS Art Interior Office Architecture" loading="lazy">
                 </div>
             </div>
             <div class="about__content">
                 <h2 class="about__title reveal reveal--left">
                     ABOUT<br>PROJECT
                 </h2>
-                <p class="about__text reveal reveal--right">
-                    TS Art Interior là đơn vị thiết kế nội thất chuyên nghiệp, mang đến giải pháp không gian sống và làm việc đẳng cấp. 
-                    Với đội ngũ kiến trúc sư giàu kinh nghiệm, chúng tôi cam kết tạo nên những không gian vừa thẩm mỹ vừa 
-                    tối ưu công năng, phản ánh cá tính và phong cách riêng của mỗi khách hàng.
-                </p>
+                <div class="about__text reveal reveal--right">
+                    <p class="about__lead">
+                        <strong>TS Art Interior</strong> là đơn vị tư vấn thiết kế và thi công nội thất cao cấp, đồng hành cùng chủ đầu tư từ ý tưởng ban đầu đến khi không gian được hoàn thiện và đưa vào vận hành.
+                    </p>
+                    <p>
+                        Với mỗi dự án, chúng tôi không chỉ tạo nên một không gian đẹp, mà còn <strong>giải quyết bài toán công năng, trải nghiệm và vận hành</strong> thông qua thiết kế phù hợp với nhu cầu thực tế.
+                    </p>
+                    <p class="about__highlight">
+                        <strong>Từ thiết kế đến thi công, mọi chi tiết được kết nối trong một quy trình xuyên suốt — để chủ đầu tư có thể an tâm về chất lượng, tiến độ và một không gian được hoàn thiện đúng với tầm nhìn ban đầu.</strong>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ========== CORE VALUES ========== -->
-    <section class="values">
-        <div class="container">
-            <div class="values__grid">
-                <div class="values__images reveal reveal--left">
-                    <div class="values__img-1 img-hover">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Core Values" class="lazy" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" loading="lazy">
+    <section class="values" id="values">
+        <div class="values__bg">
+            <img src="assets/values-armchair.png" alt="TS Art Core Values" class="values__bg-img" loading="lazy">
+            <div class="values__overlay"></div>
+        </div>
+        <div class="container values__container">
+            <div class="values__layout">
+                <div class="values__content">
+                    <div class="values__columns">
+                        <!-- Cột 1 (3 giá trị) -->
+                        <div class="values__col reveal reveal--up">
+                            <div class="values__item">
+                                <h3 class="values__item-title">CHỦ ĐỘNG TRONG TỪNG CHI TIẾT</h3>
+                                <p class="values__item-desc">Quản lý xuyên suốt từ kế hoạch, tiến độ đến từng hạng mục hoàn thiện, đảm bảo dự án được kiểm soát chặt chẽ ngay từ đầu.</p>
+                            </div>
+                            <div class="values__item">
+                                <h3 class="values__item-title">MINH BẠCH TRONG TIẾN ĐỘ</h3>
+                                <p class="values__item-desc">Cập nhật tiến độ thi công trực quan và nhất quán, giúp chủ đầu tư luôn nắm bắt được từng bước chuyển mình của công trình.</p>
+                            </div>
+                            <div class="values__item">
+                                <h3 class="values__item-title">ĐỒNG HÀNH DÀI HẠN</h3>
+                                <p class="values__item-desc">Không dừng lại ở thời điểm bàn giao, TSA tiếp tục đồng hành cùng chủ đầu tư trong quá trình bảo hành và vận hành không gian.</p>
+                            </div>
+                        </div>
+                        <!-- Cột 2 (2 giá trị) -->
+                        <div class="values__col reveal reveal--up">
+                            <div class="values__item">
+                                <h3 class="values__item-title">TỐI ƯU TRẢI NGHIỆM</h3>
+                                <p class="values__item-desc">Tinh gọn quy trình phối hợp và xử lý thủ tục, để việc triển khai dự án trở nên nhẹ nhàng và hiệu quả hơn.</p>
+                            </div>
+                            <div class="values__item">
+                                <h3 class="values__item-title">THẨM MỸ CÓ CHỦ ĐÍCH</h3>
+                                <p class="values__item-desc">Mỗi giải pháp thiết kế được cân bằng giữa ngôn ngữ thẩm mỹ, công năng và đặc thù vận hành của từng không gian.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="values__img-2 img-hover">
-                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80" alt="Interior Design" class="lazy" data-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80" loading="lazy">
-                    </div>
-                </div>
-                <div class="values__content reveal reveal--right">
-                    <div class="values__list">
-                        <div class="values__item">
-                            <h3>SÁNG TẠO LIÊN TỤC</h3>
-                            <p>Không ngừng đổi mới, tìm kiếm những giải pháp thiết kế độc đáo và phù hợp.</p>
-                        </div>
-                        <div class="values__item">
-                            <h3>CHẤT LƯỢNG HÀNG ĐẦU</h3>
-                            <p>Mỗi chi tiết đều được chăm chút với tiêu chuẩn cao nhất.</p>
-                        </div>
-                        <div class="values__item">
-                            <h3>KHÁCH HÀNG LÀ TRỌNG TÂM</h3>
-                            <p>Lắng nghe và thấu hiểu để mang đến giải pháp tối ưu nhất.</p>
-                        </div>
-                        <div class="values__item">
-                            <h3>ĐỒNG HÀNH BỀN VỮNG</h3>
-                            <p>Xây dựng mối quan hệ lâu dài dựa trên sự tin tưởng và chuyên nghiệp.</p>
-                        </div>
-                        <div class="values__item">
-                            <h3>TINH THẦN HỢP TÁC</h3>
-                            <p>Phối hợp chặt chẽ giữa các bộ phận để đạt kết quả tốt nhất.</p>
-                        </div>
-                    </div>
-                    <div class="values__badge">
+                    <!-- Badge 05 Giá trị cốt lõi -->
+                    <div class="values__badge reveal reveal--left">
                         <span class="values__badge-num">05</span>
-                        <span class="values__badge-text">CORE<br>VALUES</span>
+                        <div class="values__badge-text">
+                            <span>GIÁ TRỊ</span>
+                            <span>CỐT LÕI</span>
+                        </div>
                     </div>
                 </div>
             </div>
