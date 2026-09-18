@@ -1,0 +1,47 @@
+<!-- ==========================================
+     TS ART INTERIOR - HEADER COMPONENT
+     Chuẩn hóa thanh điều hướng (Header) cho toàn bộ website
+     Lưu ý: Hệ thống đang dùng header.js để tự động đồng bộ header
+     cho tất cả các trang (trang chủ và các trang dự án).
+     Khi cần thêm/sửa dự án hoặc menu, vui lòng cập nhật tại header.js
+     (hoặc sửa file này nếu dùng server include như PHP/Nginx/Apache).
+     ========================================== -->
+<header class="header" id="header">
+    <nav class="nav">
+        <a href="#hero" class="nav__logo">TS ART INTERIOR</a>
+        <div class="nav__menu" id="navMenu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="#hero" class="nav__link active" data-section="hero">TS Art Interior</a>
+                </li>
+                <li class="nav__separator">|</li>
+                <li class="nav__item">
+                    <a href="#about" class="nav__link" data-section="about">About us</a>
+                </li>
+                <li class="nav__separator">|</li>
+                <li class="nav__item nav__item--dropdown">
+                    <a href="#projects" class="nav__link" data-section="projects">Signature projects</a>
+                    <div class="dropdown">
+                        <a href="projects/sales-gallery-nho.html" class="dropdown__link">01 — Sales Gallery N.H.O</a>
+                        <a href="projects/hsc-office.html" class="dropdown__link">02 — HSC Office</a>
+                        <a href="projects/ton-duc-thang-university.html" class="dropdown__link">03 — Ton Duc Thang University</a>
+                        <a href="projects/viinriic-perfume.html" class="dropdown__link">04 — ViinRiic Pefum Thiso Mall</a>
+                        <a href="projects/zeit-river.html" class="dropdown__link">05 — Zeit River</a>
+                        <a href="projects/hue-tam-restaurant.html" class="dropdown__link">06 — Hue Tam Restaurant</a>
+                        <a href="projects/grand-marina.html" class="dropdown__link">07 — Grand Marina Saigon</a>
+                        <a href="projects/the-river-thu-thiem.html" class="dropdown__link">08 — The River Thủ Thiêm</a>
+                    </div>
+                </li>
+                <li class="nav__separator">|</li>
+                <li class="nav__item">
+                    <a href="#connect" class="nav__link" data-section="connect">Connect</a>
+                </li>
+            </ul>
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
