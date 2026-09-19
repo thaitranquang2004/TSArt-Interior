@@ -82,21 +82,6 @@
     transform: scale(1.03);
 }
 
-/* WebGL Water Ripples on Project Hero */
-.p-hero__bg.hover-imge-ripple canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    pointer-events: none;
-    z-index: 1;
-    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.p-hero:hover .p-hero__bg.hover-imge-ripple canvas {
-    transform: scale(1.03);
-}
 
 .p-hero__overlay {
     position: absolute;

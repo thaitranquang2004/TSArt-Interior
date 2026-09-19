@@ -400,31 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Synchronize WebGL water ripple render loops with slide visibility
-            if (window.jQuery) {
-                heroSlides.forEach((slide, i) => {
-                    const r = window.jQuery(slide).data('ripples');
-                    if (r && typeof r.setVisible === 'function') {
-                        if (i === currentSlide || i === prevIndex) {
-                            r.setVisible(true);
-                        } else {
-                            r.setVisible(false);
-                        }
-                    }
-                });
-
-                setTimeout(() => {
-                    heroSlides.forEach((slide, i) => {
-                        if (i !== currentSlide) {
-                            const r = window.jQuery(slide).data('ripples');
-                            if (r && typeof r.setVisible === 'function') {
-                                r.setVisible(false);
-                            }
-                        }
-                    });
-                }, 1500);
-            }
-
             updatePagination(currentSlide);
             restartAutoPlay();
         };
@@ -499,50 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize first slide progress and start auto-play
         updatePagination(0);
         restartAutoPlay();
-
-        // Forward hero-level mousemove & mousedown directly to the active slide's WebGL ripple
-        if (window.jQuery) {
-            const $hero = window.jQuery('.hero');
-            $hero.on('mousemove.heroRipples', function (e) {
-                const $activeSlide = $hero.find('.hero__slide.active.hover-imge-ripple');
-                const r = $activeSlide.data('ripples');
-                if (r && !r._destroyed && typeof r.mousemove === 'function') {
-                    r.mousemove(e);
-                }
-            });
-
-            $hero.on('mousedown.heroRipples', function (e) {
-                if (window.jQuery(e.target).closest('a, button, .hero__nav-btn, .hero__control-arrow, .hero__pag-item').length) return;
-                const $activeSlide = $hero.find('.hero__slide.active.hover-imge-ripple');
-                const r = $activeSlide.data('ripples');
-                if (r && !r._destroyed && typeof r.mousedown === 'function') {
-                    r.mousedown(e);
-                }
-            });
-        }
-    }
-
-    // ========== PROJECT DETAIL HERO WATER RIPPLES ==========
-    if (window.jQuery) {
-        const $pHero = window.jQuery('.p-hero');
-        if ($pHero.length) {
-            $pHero.on('mousemove.pHeroRipples', function (e) {
-                const $bg = window.jQuery(this).find('.p-hero__bg.hover-imge-ripple');
-                const r = $bg.data('ripples');
-                if (r && !r._destroyed && typeof r.mousemove === 'function') {
-                    r.mousemove(e);
-                }
-            });
-
-            $pHero.on('mousedown.pHeroRipples', function (e) {
-                if (window.jQuery(e.target).closest('a, button').length) return;
-                const $bg = window.jQuery(this).find('.p-hero__bg.hover-imge-ripple');
-                const r = $bg.data('ripples');
-                if (r && !r._destroyed && typeof r.mousedown === 'function') {
-                    r.mousedown(e);
-                }
-            });
-        }
     }
 
     // ========== IMAGE HOVER MAGNETIC EFFECT ==========

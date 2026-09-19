@@ -448,38 +448,6 @@ button {
     transition: none;
 }
 
-/* WebGL Water Ripples Canvas (Archinic Engine) */
-.hover-imge-ripple {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero__slide.hover-imge-ripple {
-    position: absolute;
-    inset: 0;
-}
-
-.hero__slide canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    pointer-events: none;
-    z-index: 1;
-    transform: scale(1.04);
-    will-change: transform, opacity;
-}
-
-.hero__slide.active canvas {
-    transform: scale(1.1);
-    transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero__slide.prev canvas {
-    transform: scale(1.1);
-    transition: none;
-}
 
 .hero__overlay {
     position: absolute;
