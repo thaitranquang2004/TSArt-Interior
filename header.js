@@ -48,7 +48,7 @@
     const heroHref = isProject ? basePath + 'index.html' : '#hero';
     const aboutHref = isProject ? basePath + 'index.html#about' : '#about';
     const projectsHref = isProject ? basePath + 'index.html#projects' : '#projects';
-    const connectHref = isProject ? basePath + 'index.html#connect' : '#connect';
+    const connectHref = '#connect';
 
     // Xây dựng danh sách dropdown items
     const dropdownHTML = projectsList.map(item => {
@@ -57,18 +57,18 @@
         return `                            <a href="${itemHref}" class="dropdown__link${isActive ? ' active' : ''}">${item.title}</a>`;
     }).join('\n');
 
-    // Class và data-section cho link điều hướng
+    // Class và data-section cho link điều hướng (luôn có data-section để hỗ trợ sliding indicator và hover)
     const heroClass = isProject ? 'nav__link' : 'nav__link active';
-    const heroData = isProject ? '' : ' data-section="hero"';
+    const heroData = ' data-section="hero"';
 
     const aboutClass = 'nav__link';
-    const aboutData = isProject ? '' : ' data-section="about"';
+    const aboutData = ' data-section="about"';
 
     const projectsClass = isProject ? 'nav__link active' : 'nav__link';
-    const projectsData = isProject ? '' : ' data-section="projects"';
+    const projectsData = ' data-section="projects"';
 
     const connectClass = 'nav__link';
-    const connectData = isProject ? '' : ' data-section="connect"';
+    const connectData = ' data-section="connect"';
 
     // 4. Nội dung HTML chuẩn của Header (lấy từ index.html)
     const headerHTML = `

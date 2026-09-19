@@ -22,16 +22,16 @@
         <div class="hero__bg">
             <!-- 4 Hero Slides -->
             <div class="hero__slider">
-                <div class="hero__slide active" data-slide="0">
+                <div class="hero__slide active hover-imge-ripple" data-slide="0" data-image-url="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=85">
                     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=85" alt="TS Art Interior Design - Không gian phòng khách sang trọng" class="hero__bg-img" loading="eager">
                 </div>
-                <div class="hero__slide" data-slide="1">
+                <div class="hero__slide hover-imge-ripple" data-slide="1" data-image-url="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=85">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=85" alt="TS Art Interior Design - Căn hộ penthouse cao cấp" class="hero__bg-img" loading="eager">
                 </div>
-                <div class="hero__slide" data-slide="2">
+                <div class="hero__slide hover-imge-ripple" data-slide="2" data-image-url="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=85">
                     <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=85" alt="TS Art Interior Design - Kiến trúc bếp & phòng ăn đương đại" class="hero__bg-img" loading="eager">
                 </div>
-                <div class="hero__slide" data-slide="3">
+                <div class="hero__slide hover-imge-ripple" data-slide="3" data-image-url="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=85">
                     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=85" alt="TS Art Interior Design - Không gian làm việc & sảnh trưng bày" class="hero__bg-img" loading="eager">
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="hero__editorial reveal reveal--up">
                 <div class="hero__eyebrow">
                     <span class="hero__eyebrow-line"></span>
-                    <span class="hero__eyebrow-text">EST. 2021 &nbsp;•&nbsp; ARCHITECTURAL &amp; INTERIOR STUDIO</span>
+                    <span class="hero__eyebrow-text">EST. 2022 &nbsp;•&nbsp; ARCHITECTURAL &amp; INTERIOR STUDIO</span>
                     <span class="hero__eyebrow-line"></span>
                 </div>
 
@@ -58,39 +58,17 @@
             </div>
         </div>
 
-        <!-- Hero Slider Controls (Pagination & Arrows) -->
-        <div class="hero__controls">
-            <button class="hero__control-arrow hero__control-arrow--prev" aria-label="Slide trước">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </button>
-
-            <div class="hero__pagination">
-                <button class="hero__pag-item active" data-index="0" aria-label="Xem ảnh 1">
-                    <span class="hero__pag-num">01</span>
-                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
-                </button>
-                <button class="hero__pag-item" data-index="1" aria-label="Xem ảnh 2">
-                    <span class="hero__pag-num">02</span>
-                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
-                </button>
-                <button class="hero__pag-item" data-index="2" aria-label="Xem ảnh 3">
-                    <span class="hero__pag-num">03</span>
-                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
-                </button>
-                <button class="hero__pag-item" data-index="3" aria-label="Xem ảnh 4">
-                    <span class="hero__pag-num">04</span>
-                    <span class="hero__pag-bar"><span class="hero__pag-progress"></span></span>
-                </button>
-            </div>
-
-            <button class="hero__control-arrow hero__control-arrow--next" aria-label="Slide tiếp theo">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </button>
-        </div>
+        <!-- Hero Side Navigation Arrows -->
+        <button class="hero__nav-btn hero__nav-btn--prev" aria-label="Hình trước">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <button class="hero__nav-btn hero__nav-btn--next" aria-label="Hình tiếp theo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
     </section>
 
     <!-- ========== CALENDAR / INTRO SECTION ========== -->
@@ -461,57 +439,14 @@
             </div>
         </section>
 
-        <!-- Part 2: Contacts Section (Dark Luxury) -->
-        <section class="contacts-section">
-            <div class="contacts-container">
-                <!-- Left: Luxury Kitchen Island Photo -->
-                <div class="contacts-media img-hover reveal reveal--left">
-                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85" alt="TS Art Luxury Kitchen Interior" class="lazy" data-src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85" loading="lazy">
-                </div>
-
-                <!-- Right: Editorial Contacts Info -->
-                <div class="contacts-content reveal reveal--right">
-                    <div class="contacts-header-badge">
-                        <div class="contacts-brand">
-                            <div class="contacts-brand__logo">
-                                <span>TS ART INTERI<span class="dot">●</span>R</span>
-                            </div>
-                            <span class="contacts-brand__tagline">TURNKEY SERVICE</span>
-                        </div>
-                        
-                    </div>
-
-                    <div class="contacts-body">
-                        <h2 class="contacts-title">CONTACTS</h2>
-                        <div class="contacts-table">
-                            <div class="contacts-row">
-                                <span class="contacts-row__label">ĐỊA CHỈ</span>
-                                <span class="contacts-row__value">28 Tạ Hiện, phường Cát Lái, TP. HCM</span>
-                            </div>
-                            <div class="contacts-row">
-                                <span class="contacts-row__label">HOTLINE</span>
-                                <span class="contacts-row__value"><a href="tel:+84934008585">(+84) 934 008 585</a></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contacts-action">
-                        <a href="tel:+84934008585" class="contacts-btn">
-                            <span>Liên hệ tư vấn</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Part 2: Connect Section as Reusable Footer -->
+        <div id="footer-placeholder" data-base-path=""></div>
+        <script src="footer.js"></script>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <div id="footer-placeholder" data-base-path=""></div>
-    <script src="footer.js"></script>
-
+    <!-- jQuery & WebGL Ripples Engine (Archinic) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="ripple.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

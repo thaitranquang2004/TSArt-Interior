@@ -56,14 +56,101 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ========== ACTIVE NAV LINK ON SCROLL ==========
-    const navLinksAll = document.querySelectorAll('.nav__link[data-section]');
-    const trackedSections = [
-        { id: 'hero', name: 'hero' },
-        { id: 'about', name: 'about' },
-        { id: 'projects', name: 'projects' },
-        { id: 'connect', name: 'connect' }
+    // ========== ACTIVE NAV LINK ON SCROLL & SLIDING INDICATOR ==========
+    let navList = document.querySelector('.nav__list');
+    let navLinksAll = document.querySelectorAll('.nav__link[data-section]');
+    let indicator = null;
+
+    const initNavIndicator = () => {
+        if (!navList) navList = document.querySelector('.nav__list');
+        if (!navList) return;
+
+        indicator = navList.querySelector('.nav__indicator');
+        if (!indicator) {
+            indicator = document.createElement('span');
+            indicator.className = 'nav__indicator';
+            navList.appendChild(indicator);
+        }
+        navList.classList.add('has-indicator');
+
+        navLinksAll = document.querySelectorAll('.nav__link[data-section]');
+        if (navLinksAll.length > 0) {
+            navLinksAll.forEach(link => {
+                if (link._hasIndicatorHover) return;
+                link._hasIndicatorHover = true;
+                link.addEventListener('mouseenter', () => {
+                    moveIndicator(link);
+                });
+            });
+
+            if (!navList._hasIndicatorLeave) {
+                navList._hasIndicatorLeave = true;
+                navList.addEventListener('mouseleave', () => {
+                    const currentActive = document.querySelector('.nav__link.active');
+                    if (currentActive) {
+                        moveIndicator(currentActive);
+                    }
+                });
+            }
+        }
+    };
+
+    const moveIndicator = (targetLink) => {
+        if (!targetLink || !indicator || window.innerWidth <= 768) {
+            if (indicator) indicator.style.opacity = '0';
+            return;
+        }
+        const listRect = navList.getBoundingClientRect();
+        const linkRect = targetLink.getBoundingClientRect();
+
+        // Calculate offset and width relative to navList
+        const paddingOffset = 10;
+        const left = (linkRect.left - listRect.left) + paddingOffset;
+        const width = Math.max(0, linkRect.width - (paddingOffset * 2));
+
+        indicator.style.transform = `translateX(${left}px)`;
+        indicator.style.width = `${width}px`;
+        indicator.style.opacity = '1';
+    };
+
+    // Initialize indicator on DOM ready
+    initNavIndicator();
+
+    // Map section IDs to header navigation items (both 'about' and 'values' map to 'about')
+    const sectionNavMap = [
+        { id: 'hero', navTarget: 'hero' },
+        { id: 'intro', navTarget: 'hero' },
+        { id: 'about', navTarget: 'about' },
+        { id: 'values', navTarget: 'about' },
+        { id: 'projects', navTarget: 'projects' },
+        { id: 'connect', navTarget: 'connect' }
     ];
+
+    let currentActiveNav = '';
+
+    const updateActiveLink = (targetNav) => {
+        if (!navList || !indicator || !navLinksAll || navLinksAll.length === 0) {
+            initNavIndicator();
+        }
+
+        let activeLink = null;
+        if (navLinksAll) {
+            navLinksAll.forEach(link => {
+                const matches = link.getAttribute('data-section') === targetNav;
+                link.classList.toggle('active', matches);
+                if (matches) activeLink = link;
+            });
+        }
+
+        if (targetNav !== currentActiveNav || !indicator || indicator.style.opacity !== '1') {
+            currentActiveNav = targetNav;
+            if (activeLink) {
+                moveIndicator(activeLink);
+            }
+        }
+    };
+
+    const isProjectPage = document.body.classList.contains('project-page') || window.location.pathname.includes('/projects/');
 
     const highlightNav = () => {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
@@ -77,32 +164,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // When scrolled near or to the bottom of the page, always activate Connect
         if (scrollY + windowHeight >= documentHeight - 120) {
-            navLinksAll.forEach(link => {
-                link.classList.toggle('active', link.getAttribute('data-section') === 'connect');
-            });
+            updateActiveLink('connect');
             return;
         }
 
-        let activeId = 'hero';
-        trackedSections.forEach(({ id }) => {
+        // Branch for Project Pages: default tab is 'projects', slides to 'connect' on reaching footer
+        if (isProjectPage) {
+            const footerEl = document.getElementById('connect') ||
+                             document.querySelector('.connect-footer') ||
+                             document.getElementById('footer-placeholder');
+            if (footerEl) {
+                const rect = footerEl.getBoundingClientRect();
+                // When top of footer enters upper 55% of the viewport
+                if (rect.top <= windowHeight * 0.55) {
+                    updateActiveLink('connect');
+                    return;
+                }
+            }
+            updateActiveLink('projects');
+            return;
+        }
+
+        // Home page: Check sections sequentially from top to bottom
+        let activeTarget = 'hero';
+        sectionNavMap.forEach(({ id, navTarget }) => {
             const el = document.getElementById(id);
             if (el) {
                 const rect = el.getBoundingClientRect();
-                // When section enters the upper 45% of viewport and is still visible
-                if (rect.top <= windowHeight * 0.45 && rect.bottom > 100) {
-                    activeId = id;
+                // When section enters upper 45% of viewport and is still partially visible
+                if (rect.top <= windowHeight * 0.45 && rect.bottom > 80) {
+                    activeTarget = navTarget;
                 }
             }
         });
 
-        navLinksAll.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-        });
+        updateActiveLink(activeTarget);
     };
 
     window.addEventListener('scroll', highlightNav, { passive: true });
-    window.addEventListener('resize', highlightNav, { passive: true });
-    highlightNav();
+    window.addEventListener('resize', () => {
+        highlightNav();
+        const currentActive = document.querySelector('.nav__link.active');
+        if (currentActive) moveIndicator(currentActive);
+    }, { passive: true });
+
+    // Initial positioning
+    setTimeout(() => {
+        highlightNav();
+        const currentActive = document.querySelector('.nav__link.active');
+        if (currentActive) moveIndicator(currentActive);
+    }, 150);
+    setTimeout(() => {
+        highlightNav();
+        const currentActive = document.querySelector('.nav__link.active');
+        if (currentActive) moveIndicator(currentActive);
+    }, 400);
 
     // ========== SCROLL REVEAL ANIMATION ==========
     const revealElements = document.querySelectorAll('.reveal');
@@ -232,8 +348,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== HERO SLIDER (4 IMAGES) ==========
     const heroSlides = document.querySelectorAll('.hero__slide');
     const heroPagItems = document.querySelectorAll('.hero__pag-item');
-    const heroPrevBtn = document.querySelector('.hero__control-arrow--prev');
-    const heroNextBtn = document.querySelector('.hero__control-arrow--next');
+    const heroPrevBtn = document.querySelector('.hero__nav-btn--prev, .hero__control-arrow--prev');
+    const heroNextBtn = document.querySelector('.hero__nav-btn--next, .hero__control-arrow--next');
 
     if (heroSlides.length > 0) {
         let currentSlide = 0;
@@ -241,6 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const SLIDE_DURATION = 5000; // 5.0s per slide
 
         const updatePagination = (index) => {
+            if (!heroPagItems || heroPagItems.length === 0) return;
             heroPagItems.forEach((item, i) => {
                 const progress = item.querySelector('.hero__pag-progress');
                 if (i === index) {
@@ -282,6 +399,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     slide.classList.remove('active');
                 }
             });
+
+            // Synchronize WebGL water ripple render loops with slide visibility
+            if (window.jQuery) {
+                heroSlides.forEach((slide, i) => {
+                    const r = window.jQuery(slide).data('ripples');
+                    if (r && typeof r.setVisible === 'function') {
+                        if (i === currentSlide || i === prevIndex) {
+                            r.setVisible(true);
+                        } else {
+                            r.setVisible(false);
+                        }
+                    }
+                });
+
+                setTimeout(() => {
+                    heroSlides.forEach((slide, i) => {
+                        if (i !== currentSlide) {
+                            const r = window.jQuery(slide).data('ripples');
+                            if (r && typeof r.setVisible === 'function') {
+                                r.setVisible(false);
+                            }
+                        }
+                    });
+                }, 1500);
+            }
 
             updatePagination(currentSlide);
             restartAutoPlay();
@@ -357,6 +499,50 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize first slide progress and start auto-play
         updatePagination(0);
         restartAutoPlay();
+
+        // Forward hero-level mousemove & mousedown directly to the active slide's WebGL ripple
+        if (window.jQuery) {
+            const $hero = window.jQuery('.hero');
+            $hero.on('mousemove.heroRipples', function (e) {
+                const $activeSlide = $hero.find('.hero__slide.active.hover-imge-ripple');
+                const r = $activeSlide.data('ripples');
+                if (r && !r._destroyed && typeof r.mousemove === 'function') {
+                    r.mousemove(e);
+                }
+            });
+
+            $hero.on('mousedown.heroRipples', function (e) {
+                if (window.jQuery(e.target).closest('a, button, .hero__nav-btn, .hero__control-arrow, .hero__pag-item').length) return;
+                const $activeSlide = $hero.find('.hero__slide.active.hover-imge-ripple');
+                const r = $activeSlide.data('ripples');
+                if (r && !r._destroyed && typeof r.mousedown === 'function') {
+                    r.mousedown(e);
+                }
+            });
+        }
+    }
+
+    // ========== PROJECT DETAIL HERO WATER RIPPLES ==========
+    if (window.jQuery) {
+        const $pHero = window.jQuery('.p-hero');
+        if ($pHero.length) {
+            $pHero.on('mousemove.pHeroRipples', function (e) {
+                const $bg = window.jQuery(this).find('.p-hero__bg.hover-imge-ripple');
+                const r = $bg.data('ripples');
+                if (r && !r._destroyed && typeof r.mousemove === 'function') {
+                    r.mousemove(e);
+                }
+            });
+
+            $pHero.on('mousedown.pHeroRipples', function (e) {
+                if (window.jQuery(e.target).closest('a, button').length) return;
+                const $bg = window.jQuery(this).find('.p-hero__bg.hover-imge-ripple');
+                const r = $bg.data('ripples');
+                if (r && !r._destroyed && typeof r.mousedown === 'function') {
+                    r.mousedown(e);
+                }
+            });
+        }
     }
 
     // ========== IMAGE HOVER MAGNETIC EFFECT ==========

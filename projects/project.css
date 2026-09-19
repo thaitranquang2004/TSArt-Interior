@@ -67,20 +67,42 @@
 }
 
 .p-hero__bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.85;
     transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 0;
 }
 
 .p-hero:hover .p-hero__bg img {
     transform: scale(1.03);
 }
 
+/* WebGL Water Ripples on Project Hero */
+.p-hero__bg.hover-imge-ripple canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.p-hero:hover .p-hero__bg.hover-imge-ripple canvas {
+    transform: scale(1.03);
+}
+
 .p-hero__overlay {
     position: absolute;
     inset: 0;
+    z-index: 2;
+    pointer-events: none;
     background: linear-gradient(
         to bottom,
         rgba(0,0,0,0.15) 0%,
@@ -91,9 +113,15 @@
 
 .p-hero__content {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     width: 100%;
     padding: 4rem 0 3.5rem 0;
+    pointer-events: none;
+}
+
+.p-hero__content a,
+.p-hero__content button {
+    pointer-events: auto;
 }
 
 .p-hero__grid {
